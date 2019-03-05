@@ -30,6 +30,7 @@ Useful, efficient and super simple to use.
 - prep_time: Estimated preparation time of the recipe (>= 0.1.6)
 - cook_time: Cooking time (>= 0.1.6)
 - total_time: Estimated total time of the recipe (>= 0.1.6)
+- nutrition: number of grams of protein, carbs, and fat in one serving of the recipe
 
 ### Usage / Example :
 

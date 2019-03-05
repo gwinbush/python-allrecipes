@@ -81,6 +81,11 @@ class AllRecipes(object):
 		cook_time = direction_data.find("time", {"itemprop": "cookTime"}).get_text()
 		total_time = direction_data.find("time", {"itemprop": "totalTime"}).get_text()
 
+		nutrition_info = soup.find("div", {"class": "nutrition-summary-facts"})
+		protein = nutrition_info.find("span", {"itemprop": "proteinContent"}).get_text()
+		carbs = nutrition_info.find("span", {"itemprop": "carbohydrateContent"}).get_text()
+		fat = nutrition_info.find("span", {"itemprop": "fatContent"}).get_text()
+
 		data = {
 				"rating": rating,
 				"ingredients": [],
@@ -88,7 +93,10 @@ class AllRecipes(object):
 				"name": name,
 				"prep_time": prep_time,
 				"cook_time": cook_time,
-				"total_time": total_time
+				"total_time": total_time,
+				"nutrition": {"protein": protein,
+								"carbs": carbs,
+								"fat": fat}
 				}
 
 		for ingredient in ingredients:
